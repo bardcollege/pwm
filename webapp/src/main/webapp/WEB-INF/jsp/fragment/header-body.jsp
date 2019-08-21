@@ -29,7 +29,7 @@
 <pwm:if test="<%=PwmIfTest.headerMenuIsVisible%>">
     <%@ include file="header-menu.jsp" %>
 </pwm:if>
-<div id="header">
+<div id="header" class="row">
 	<div class="col s6 offset-s3">
 		<div id="header-company-logo" class="col s4 offset-s2">
 			<img src="/pwm/public/resources/themes/bard/bard-red-nav.png" class="responsive-img" />
