@@ -233,6 +233,7 @@ public class OAuthMachine
             final Map<String, String> requestParams = new HashMap<>();
             requestParams.put( config.readAppProperty( AppProperty.HTTP_PARAM_OAUTH_ACCESS_TOKEN ), accessToken );
             requestParams.put( config.readAppProperty( AppProperty.HTTP_PARAM_OAUTH_ATTRIBUTES ), settings.getDnAttributeName() );
+			requestParams.put( "httpMethod", "GET" );
             restResults = makeHttpRequest( pwmRequest, "OAuth userinfo", settings, requestUrl, requestParams, accessToken );
         }
 
@@ -283,7 +284,14 @@ public class OAuthMachine
             }
             headers.put( HttpHeader.ContentType.getHttpName(), HttpContentType.form.getHeaderValue() );
 
-            pwmHttpClientRequest = new PwmHttpClientRequest( HttpMethod.GET, requestUrl, requestBody, headers );
+			HttpMethod httpMethod;
+			if (requestParams.containsKey("httpMethod")) {
+				httpMethod = HttpMethod.fromString(requestParams.get("httpMethod"));
+			} else {
+				httpMethod = HttpMethod.POST;
+			}
+
+            pwmHttpClientRequest = new PwmHttpClientRequest( httpMethod, requestUrl, requestBody, headers );
         }
 
         final PwmHttpClientResponse pwmHttpClientResponse;
