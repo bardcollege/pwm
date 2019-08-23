@@ -283,7 +283,7 @@ public class OAuthMachine
             }
             headers.put( HttpHeader.ContentType.getHttpName(), HttpContentType.form.getHeaderValue() );
 
-            pwmHttpClientRequest = new PwmHttpClientRequest( HttpMethod.POST, requestUrl, requestBody, headers );
+            pwmHttpClientRequest = new PwmHttpClientRequest( HttpMethod.GET, requestUrl, requestBody, headers );
         }
 
         final PwmHttpClientResponse pwmHttpClientResponse;
