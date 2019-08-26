@@ -31,7 +31,7 @@
 </pwm:if>
 <div id="header">
 	<div id="header-company-logo">
-		<img src="/public/resources/themes/bard/bard-red-nav.png" id="logo" style="max-height:65px;float:right;"/>
+		<img src="/public/resources/themes/bard/bard-red-nav.png" id="logo" alt="Bard logo">
 	</div>
 	<div id="header-balance-div">
 		<br/><%-- balance div for ie 6 --%>

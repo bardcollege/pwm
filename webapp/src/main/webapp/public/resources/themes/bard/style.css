@@ -429,8 +429,9 @@ input[type=password]::-ms-reveal {
     content: "\f0e8";
 }
 
+/* changed */
 .tile-title {
-    color: #434c50;
+    color: #222222;
     font-size: 16px;
     overflow: hidden;
     margin-bottom: 2px;
@@ -441,7 +442,7 @@ input[type=password]::-ms-reveal {
     font-size: 12px;
     font-weight: normal;
     line-height: 14px;
-    color: #808080;
+    color: #333333;
     overflow: hidden;
     height: 70px;
 }
@@ -505,7 +506,7 @@ div.progress-container > div {
 }
 
 #logo {
-	margin-top: 0.5%
+	margin-top: 0.5%;
 	max-height: 85%;
 	float: right;
 	margin-right: 5px;
@@ -583,7 +584,7 @@ html[dir="rtl"] #header-center-right {
 }
 
 #header-page {
-    padding-top: 14px;
+    /*padding-top: 14px;*/
     margin-left: auto;
     margin-right: auto;
     font-family: Trebuchet MS, sans-serif;
