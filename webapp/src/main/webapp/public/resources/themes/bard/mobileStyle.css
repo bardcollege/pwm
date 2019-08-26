@@ -28,6 +28,54 @@ html, body {
     min-width: 300px;
 }
 
+/* begin exciting small screen changes */
+#header {
+	height: 140px;
+}
+
+#header-company-logo {
+	height: 50%;
+	width: 100%;
+	text-align: center;
+}
+
+#logo {
+	float: none;
+}
+
+.vline {
+	left: 5%;
+	right: 5%;
+	bottom: 53%;
+	top: 53%;
+	border-bottom: 1px solid #ededed;
+}
+
+#header-center {
+	height: 50%;
+}
+
+#header-center-left {
+	margin-left: 5%;
+}
+
+#header-page {
+	padding-left: 0;
+}
+
+#header-title {
+	padding-left: 0;
+}
+
+#header-menu-right {
+	margin-right: 5%;
+}
+
+#header-menu-wrapper {
+	margin-right: 0;
+}
+
+
 /* main content section, all content should be inside a centerbody div */
 #centerbody {
     width: auto;
@@ -50,12 +98,12 @@ html, body {
 
 #header-page {
     width: auto;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
 }
 
 #header-title {
     width: auto;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
 }
 
 .inputfield {
