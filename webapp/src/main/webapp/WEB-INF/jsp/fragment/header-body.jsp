@@ -30,7 +30,7 @@
     <%@ include file="header-menu.jsp" %>
 </pwm:if>
 <div id="header" class="row">
-	<div class="col s6 offset-s3">
+	<div class="col s8 offset-s2">
 		<div id="header-company-logo" class="col s6">
 			<img src="/pwm/public/resources/themes/bard/bard-red-nav.png" class="responsive-img" style="max-height:65px;float:right;"/>
 	    </div>

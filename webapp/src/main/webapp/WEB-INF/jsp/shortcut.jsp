@@ -44,7 +44,7 @@
     <jsp:include page="fragment/header-body.jsp">
         <jsp:param name="pwm.PageName" value="Title_Shortcuts"/>
     </jsp:include>
-    <div id="centerbody" class="tile-centerbody">
+	<div id="centerbody" class="tile-centerbody center-align">
         <h1 id="page-content-title"><pwm:display key="Title_Shortcuts" displayIfMissing="true"/></h1>
         <% if (shortcutItems.isEmpty()) { %>
         <p>No shortcuts</p>
