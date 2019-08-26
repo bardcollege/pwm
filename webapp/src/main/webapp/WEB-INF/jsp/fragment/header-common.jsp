@@ -47,7 +47,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7" />
 <link rel="icon" type="image/png" href="<pwm:url url='/public/resources/favicon.png' addContext="true"/>"/>
 <link rel="stylesheet" type="text/css" href="<pwm:url url='/public/resources/pwm-icons.css' addContext="true"/>"/>
-<link href="<pwm:url url='/public/resources/materialize.css' addContext="true"/>" rel="stylesheet" type="text/css" media="screen"/>
+<link href="<pwm:url url='/public/resources/style.css' addContext="true"/>" rel="stylesheet" type="text/css" media="screen"/>
+<link href="<pwm:url url='/public/resources/materialize.min.css' addContext="true"/>" rel="stylesheet" type="text/css" media="screen"/>
 <link href="<pwm:url url='/public/resources/style-print.css' addContext="true"/>" rel="stylesheet" type="text/css" media="print"/>
 <link href="<pwm:url url="%THEME_URL%"/>" rel="stylesheet" type="text/css" media="screen"/>
 <pwm:if test="<%=PwmIfTest.requestFlag%>" requestFlag="<%=PwmRequestFlag.NO_MOBILE_CSS%>" negate="true">
