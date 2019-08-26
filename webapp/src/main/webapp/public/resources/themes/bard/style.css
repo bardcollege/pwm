@@ -20,13 +20,8 @@
 
 #centerbody {
 	padding: 5px;
-	margin-top: 20px;
-	margin-left: 16.66667%;
-	width: 66.66667%;
 	left: auto;
 	right: auto;
-	float: left;
-	box-sizing: border-box;
 	min-height: 1px;
 }
 
@@ -504,6 +499,18 @@ div.progress-container > div {
     position: relative;
 }
 
+#header-company-logo {
+	width: 50%;
+	height: 100%;
+}
+
+#logo {
+	margin-top: 0.5%
+	max-height: 85%;
+	float: right;
+	margin-right: 5px;
+}
+
 #header-balance-div {
     position: absolute;
     text-align: left;
@@ -512,18 +519,17 @@ div.progress-container > div {
     left: 18px;
 }
 
-/*
 #header-center {
-    width: 600px;
-    margin: 0 auto;
+    width: 50%;
+    margin-left: 50%;
     position: relative;
-    padding: 4px;
 }
-*/
 
 #header-center-left {
+	position: absolute;
+	top: 0;
     float: left;
-	margin-left: 10px;
+	margin-left: 15px;
     /*max-width: 400px;*/
 }
 
