@@ -45,7 +45,7 @@
             <pwm:if test="<%=PwmIfTest.permission%>" permission="<%=Permission.CHANGE_PASSWORD%>">
 				<jsp:include page="../WEB-INF/jsp/fragment/tile.jsp">
 					<jsp:param name="idStr" value="ChangePassword"/>
-					<jsp:param name="tileUrl" value='${PwmServletDefinition.PrivateChangePassword.servletUrl()}'/>
+					<jsp:param name="tileUrl" value='<%=PwmServletDefinition.PrivateChangePassword.servletUrl()%>'/>
 					<jsp:param name="imageClass" value="password-image"/>
 				</jsp:include>
             </pwm:if>
