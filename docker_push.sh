@@ -1,10 +1,9 @@
 #!/bin/bash
 
-sudo docker load -i docker/target/jib-image.tar
+IMG="bard/pwm-webapp:latest"
+SRV="k8s-master01.bard.edu:5000"
 
-IMGNAME="pwm/pwm-webapp:latest"
-SERVER="k8s-master01.bard.edu:5000"
+sudo docker build -t $IMG .
 
-sudo docker tag $IMGNAME $SERVER/$IMGNAME
-
-sudo docker push $SERVER/$IMGNAME
+sudo docker tag $IMG $SRV/$IMG
+sudo docker push $SRV/$IMG
