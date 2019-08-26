@@ -43,11 +43,15 @@
         </pwm:if>
         <pwm:if test="<%=PwmIfTest.endUserFunctionalityAvailable%>">
             <pwm:if test="<%=PwmIfTest.permission%>" permission="<%=Permission.CHANGE_PASSWORD%>">
-				<jsp:include page="../WEB-INF/jsp/fragment/tile.jsp">
-					<jsp:param name="idStr" value="ChangePassword"/>
-					<jsp:param name="tileUrl" value='<%=PwmServletDefinition.PrivateChangePassword.servletUrl()%>'/>
-					<jsp:param name="imageClass" value="password-image"/>
-				</jsp:include>
+                <a id="button_ChangePassword" href="<pwm:url addContext="true" url='<%=PwmServletDefinition.PrivateChangePassword.servletUrl()%>'/>">
+                    <div class="tile">
+                        <div class="tile-content">
+                            <div class="tile-image password-image"></div>
+                            <div class="tile-title" title="<pwm:display key='Title_ChangePassword'/>"><pwm:display key="Title_ChangePassword"/></div>
+                            <div class="tile-subtitle" title="<pwm:display key='Long_Title_ChangePassword'/>"><pwm:display key="Long_Title_ChangePassword"/></div>
+                        </div>
+                    </div>
+                </a>
             </pwm:if>
 
             <pwm:if test="<%=PwmIfTest.peopleSearchEnabled%>">
