@@ -36,7 +36,7 @@
         <jsp:param name="pwm.PageName" value="Title_MainPage"/>
     </jsp:include>
 
-    <div id="centerbody" class="tile-centerbody">
+	<%@ include file="../WEB-INF/jsp/fragment/tile-begin.jsp" %>
         <pwm:if test="<%=PwmIfTest.endUserFunctionalityAvailable%>" negate="true">
             <p><pwm:display key="Warning_NoEndUserModules" bundle="Config"/></p>
             <br/>
@@ -192,7 +192,7 @@
                 </div>
             </a>
         </pwm:if>
-    </div>
+	<%@ include file="../WEB-INF/jsp/fragment/tile-end.jsp" %>
     <div class="push"></div>
 </div>
 <%@ include file="../WEB-INF/jsp/fragment/footer.jsp" %>
