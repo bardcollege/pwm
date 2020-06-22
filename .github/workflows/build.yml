@@ -30,7 +30,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build PWM
-        run: mvn clean package -P skip-javadoc
+      run: mvn clean package -P skip-javadoc,skip-docker
 
       - name: Collect build artifacts
         run: |
@@ -39,14 +39,8 @@ jobs:
           cp "webapp/target/pwm-${PWM_VERSION}.war" staging/pwm.war
           cp "onejar/target/pwm-onejar-${PWM_VERSION}.jar" staging/pwm-onejar.jar
 
-      - name: Store built onejar
+      - name: Store artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: onejar
-          path: staging/pwm-onejar.jar
-
-      - name: Store build WAR
-        uses: actions/upload-artifact@v1
-        with:
-          name: war
-          path: staging/pwm.war
+          name: package
+          path: staging
