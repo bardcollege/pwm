@@ -39,8 +39,14 @@ jobs:
           cp "webapp/target/pwm-${PWM_VERSION}.war" staging/pwm.war
           cp "onejar/target/pwm-onejar-${PWM_VERSION}.jar" staging/pwm-onejar.jar
 
-      - name: Store artifacts
+      - name: Store OneJar
         uses: actions/upload-artifact@v1
         with:
-          name: package
-          path: staging
+          name: onejar
+          path: staging/pwm-onejar.jar
+
+      - name: Store WAR
+        uses: actions/upload-artifact@v1
+        with:
+          name: war
+          path: staging/pwm.war
