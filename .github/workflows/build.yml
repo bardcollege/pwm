@@ -13,6 +13,20 @@ on:
   pull_request:
 
 jobs:
+  npm-build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8.9.4
+
+      - run: npm install
+      - run: npm run build
+      - run: npm test
+
   maven:
     runs-on: ubuntu-latest
     steps:
