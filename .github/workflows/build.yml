@@ -5,8 +5,8 @@ on:
     branches:
       - master
       - v1_9
-  tags:
-    - v*
+    tags:
+      - v*
 
   pull_request:
 
