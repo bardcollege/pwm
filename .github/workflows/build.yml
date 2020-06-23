@@ -17,13 +17,14 @@ jobs:
     runs-on: ubuntu-latest
     env:
       workdir: ./client
+      node-version: 12.13.1
     steps:
       - uses: actions/checkout@v2
 
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
-          node-version: 8.9.4
+          node-version: ${{ env.node-version }}
 
       - run: npm install
         working-directory: ${{ env.workdir }}
@@ -51,7 +52,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build PWM
-        run: mvn clean package -P skip-javadoc,skip-docker
+        run: mvn clean package -P skip-javadoc
 
       - name: Collect build artifacts
         run: |
