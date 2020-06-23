@@ -51,7 +51,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build PWM
-        run: mvn clean package -P skip-javadoc,skip-docker,skip-checkstyle
+        run: mvn clean package -P skip-javadoc,skip-docker
 
       - name: Collect build artifacts
         run: |
