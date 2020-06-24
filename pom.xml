@@ -22,6 +22,14 @@
         <url>http://www.pwm-project.org</url>
     </organization>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>Github Bard College Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/bardcollege/pwm</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <warArtifactID>pwm-${project.version}.war</warArtifactID>
         <dockerImageTag>pwm/pwm-webapp</dockerImageTag>
@@ -383,6 +391,13 @@
             <artifactId>spotbugs-annotations</artifactId>
             <version>4.0.3</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- MySQL connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.20</version>
         </dependency>
 
         <!-- Test dependencies -->

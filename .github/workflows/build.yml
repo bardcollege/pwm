@@ -33,7 +33,7 @@ jobs:
       - run: npm test
         working-directory: ${{ env.workdir }}
 
-  maven:
+  maven-build-publish:
     runs-on: ubuntu-latest
     steps:
       # checkout this repository
@@ -72,3 +72,6 @@ jobs:
         with:
           name: war
           path: staging/pwm.war
+
+      - name: Publish to Github Packages
+        run: mvn deploy
