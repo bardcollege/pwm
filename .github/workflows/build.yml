@@ -74,4 +74,4 @@ jobs:
           path: staging/pwm.war
 
       - name: Publish to Github Packages
-        run: mvn deploy
+        run: cp settings.xml ~/.m2/ && mvn deploy
