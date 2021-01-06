@@ -43,6 +43,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+          server-id: github
+          settings-path: ${{ github.workspace }}
 
       - name: Cache Maven dependencies
         uses: actions/cache@v2
@@ -52,7 +54,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build PWM
-        run: mvn clean package -P skip-javadoc
+        run: mvn -B clean package -P skip-javadoc
 
       - name: Collect build artifacts
         run: |
@@ -74,6 +76,7 @@ jobs:
           path: staging/pwm.war
 
       - name: Publish to Github Packages
+        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
         env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: cp settings.xml ~/.m2/ && mvn deploy
+          GITHUB_TOKEN: ${{ github.token  }}
+      
