@@ -58,6 +58,10 @@ jobs:
           path: "docker/target/pwm-docker-image-${{ steps.version.outputs.version }}.tar"
 
       - name: Publish to Github Packages
-        run: mvn -B -Dmaven.wagon.http.pool=false -Dmaven.javadoc.skip=true deploy  -X
+        run: |
+          cat ~/.m2/settings.xml
+          echo "<settings><servers><server><id>github</id><username>hsartoris-bard</username><password>${ACCESS_TOKEN}</password></server></servers></settings>" > ~/.m2/settings.xml
+          mvn -B -Dmaven.wagon.http.pool=false -Dmaven.javadoc.skip=true deploy
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
