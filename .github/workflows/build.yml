@@ -76,7 +76,7 @@ jobs:
           path: staging/pwm.war
 
       - name: Publish to Github Packages
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+        run: mvn --batch-mode deploy
         env: 
           GITHUB_TOKEN: ${{ github.token  }}
       
