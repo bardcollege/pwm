@@ -21,10 +21,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-          # the below cause github to set up a Maven settings.xml file
-          # appropriate for publishing to github packages
-          server-id: github
-          settings-path: ${{ github.workspace }}
 
       - name: Cache Maven dependencies
         uses: actions/cache@v2
@@ -64,5 +60,4 @@ jobs:
       - name: Publish to Github Packages
         run: mvn -B deploy
         env: 
-          GITHUB_TOKEN: ${{ github.token  }}
-      
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
