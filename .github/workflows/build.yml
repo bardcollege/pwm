@@ -13,26 +13,6 @@ on:
   pull_request:
 
 jobs:
-  npm-build-test:
-    runs-on: ubuntu-latest
-    env:
-      workdir: ./client
-      node-version: 12.13.1
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.node-version }}
-
-      - run: npm install
-        working-directory: ${{ env.workdir }}
-      - run: npm run build
-        working-directory: ${{ env.workdir }}
-      - run: npm test
-        working-directory: ${{ env.workdir }}
-
   maven-build-publish:
     runs-on: ubuntu-latest
     steps:
@@ -56,27 +36,25 @@ jobs:
       - name: Build PWM
         run: mvn -B clean package -P skip-javadoc
 
-      - name: Collect build artifacts
+      - name: Get project version
         run: |
           PWM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
-          mkdir staging
-          cp "webapp/target/pwm-${PWM_VERSION}.war" staging/pwm.war
-          cp "onejar/target/pwm-onejar-${PWM_VERSION}.jar" staging/pwm-onejar.jar
+          echo "::set-env name=PWM_VERSION::${PWM_VERSION}"
 
       - name: Store OneJar
         uses: actions/upload-artifact@v1
         with:
           name: onejar
-          path: staging/pwm-onejar.jar
+          path: "onejar/target/pwm-onejar-${{ env.PWM_VERSION }}.jar"
 
       - name: Store WAR
         uses: actions/upload-artifact@v1
         with:
           name: war
-          path: staging/pwm.war
+          path: "webapp/target/pwm-${{ env.PWM_VERSION }}.war"
 
       - name: Publish to Github Packages
-        run: mvn --batch-mode deploy
+        run: mvn -B deploy
         env: 
           GITHUB_TOKEN: ${{ github.token  }}
       
