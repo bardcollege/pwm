@@ -273,6 +273,18 @@ class LDAPAuthenticationRequest implements AuthenticationRequest
                             permitAuthDespiteError = true;
                         }
                     }
+                    else if ( vendor == DirectoryVendor.OPEN_LDAP )
+                    {
+                        if ( pwmApplication.getConfig().readSettingAsBoolean(
+                                PwmSetting.LDAP_ALLOW_AUTH_REQUIRE_NEW_PWD ) )
+                        {
+                            log( PwmLogLevel.DEBUG,
+                                    () -> "auth bind failed, but will allow login due to 'pwdReset' user attribute, error: "
+                                            + e.getErrorInformation().toDebugStr() );
+                            allowBindAsUser = false;
+                            permitAuthDespiteError = true;
+                        }
+                    }
                 }
                 else if ( PwmError.PASSWORD_EXPIRED == e.getError() )
                 {
